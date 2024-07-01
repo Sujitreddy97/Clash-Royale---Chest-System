@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 41376423320451622}
   - component: {fileID: 9014315684326151273}
   m_Layer: 0
-  m_Name: Slot_1
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
