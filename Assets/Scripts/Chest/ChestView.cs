@@ -10,14 +10,15 @@ namespace ChestSystem
         [SerializeField] private Image chestImage;
         [SerializeField] private GameObject chestVisual;
 
-        public void SetChestController(ChestController chestController)
+        public void SetChestController(ChestController _chestController)
         {
-            this.chestController = chestController;
+            this.chestController = _chestController;
         }
 
         public void EnableChest(Sprite sprite)
         {
             this.chestImage.sprite = sprite;
+            chestVisual.SetActive(true);
         }
        
         public void DisableChest()
