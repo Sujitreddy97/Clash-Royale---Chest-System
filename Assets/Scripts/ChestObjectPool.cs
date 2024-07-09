@@ -25,10 +25,16 @@ namespace ChestSystem
             if (chestPoolObject != null)
             {
                 chestPoolObject.isActive = true;
+                Debug.Log($"Chest retrieved: {chestPoolObject.chestController}");
                 return chestPoolObject.chestController;
             }
-            return null;
+            else
+            {
+                Debug.Log("No inactive chest found.");
+                return null;
+            }
         }
+
 
         public void ReturnChestObject(ChestController _chestController)
         {

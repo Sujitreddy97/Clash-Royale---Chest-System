@@ -17,8 +17,9 @@ namespace ChestSystem
 
         public void EnableChest(Sprite sprite)
         {
-            this.chestImage.sprite = sprite;
             chestVisual.SetActive(true);
+            this.chestImage.sprite = sprite;
+            Debug.Log($"Chest sprite set: {sprite}");
         }
        
         public void DisableChest()

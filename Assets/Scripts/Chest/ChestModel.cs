@@ -18,6 +18,7 @@ namespace ChestSystem
         {
             this.chestScriptableObject = _chestScriptableObject;
             timeUnlockInSeconds = chestScriptableObject.timeInMinutes * 60;
+            Debug.Log($"Chest data reset: {chestScriptableObject.name}, Unlock time: {timeUnlockInSeconds}");
         }
 
         public Sprite GetChestSprite()
