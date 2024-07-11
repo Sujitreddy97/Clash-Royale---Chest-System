@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace ChestSystem
@@ -5,14 +6,16 @@ namespace ChestSystem
     public class ChestCollectedState : ChestBaseState
     {
         private ChestController chestController;
-
-        public ChestCollectedState(ChestController chestController)
+        private TextMeshProUGUI chestStateText;
+        public ChestCollectedState(ChestController chestController, TextMeshProUGUI chesStateText)
         {
             this.chestController = chestController;
+            this.chestStateText = chesStateText;
         }
 
         public override void OnEnterState()
         {
+            chestStateText.text = " ";
             ReturnTheChestToPool();
         }
 

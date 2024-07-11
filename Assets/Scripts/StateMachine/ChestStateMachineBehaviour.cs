@@ -10,6 +10,7 @@ namespace ChestSystem
     {
         [SerializeField] private Button chestButton;
         [SerializeField] private TextMeshProUGUI chestStateText;
+        [SerializeField] private TextMeshProUGUI chestTimerText;
 
         private ChestBaseState currentChestState = null;
 
@@ -28,13 +29,13 @@ namespace ChestSystem
                     break;
                 
                 case ChestStates.Unlocking:
-                    currentChestState = new ChestUnlockingState(chestController, chestStateText, 1, chestButton);
+                    currentChestState = new ChestUnlockingState(chestController, chestTimerText, chestStateText, 1, chestButton);
                     break;
                 case ChestStates.Unlocked:
                     currentChestState = new ChestUnlockedState(chestButton, chestController, chestStateText);
                     break;
                 case ChestStates.Collected:
-                    currentChestState = new ChestCollectedState(chestController);
+                    currentChestState = new ChestCollectedState(chestController, chestStateText);
                     break;
             }
             currentChestState?.OnEnterState();

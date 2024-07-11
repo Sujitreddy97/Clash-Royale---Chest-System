@@ -17,18 +17,7 @@ namespace ChestSystem
         public void ResetChestData(ChestScriptableObject _chestScriptableObject)
         {
             this.chestScriptableObject = _chestScriptableObject;
-            timeUnlockInSeconds = chestScriptableObject.timeInMinutes * 60;
-            Debug.Log($"Chest data reset: {chestScriptableObject.name}, Unlock time: {timeUnlockInSeconds}");
-        }
-
-        public Sprite GetChestSprite()
-        {
-            return chestScriptableObject.chestSprite;
-        }
-
-        public float GetUnlockTime()
-        {
-            return timeUnlockInSeconds;
+            timeUnlockInSeconds = chestScriptableObject.timeInMinutes;
         }
 
         public int GetRandomGems()

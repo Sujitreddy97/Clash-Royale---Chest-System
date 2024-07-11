@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace ChestSystem
 {
     public class GenericSingleton<T> : MonoBehaviour where T : GenericSingleton<T>
     {

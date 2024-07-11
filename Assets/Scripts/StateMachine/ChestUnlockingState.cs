@@ -8,16 +8,18 @@ namespace ChestSystem
     {
         private ChestController chestController;
         private TextMeshProUGUI chestTimerText;
+        private TextMeshProUGUI chestStateText;
         private int timeIntervalToUpdateText;
         private float timeToUnlock;
         private float currentTime;
 
         private Button chestButton;
 
-        public ChestUnlockingState(ChestController chestController, TextMeshProUGUI chestTimerText, int timeIntervalToUpdateText, Button chestButton)
+        public ChestUnlockingState(ChestController chestController, TextMeshProUGUI chestTimerText,TextMeshProUGUI chestStateText, int timeIntervalToUpdateText, Button chestButton)
         {
             this.chestController = chestController;
             this.chestTimerText = chestTimerText;
+            this.chestStateText = chestStateText;
             this.timeIntervalToUpdateText = timeIntervalToUpdateText;
             this.timeToUnlock = chestController.GetUnlockTime();
             this.currentTime = timeIntervalToUpdateText;
@@ -26,6 +28,7 @@ namespace ChestSystem
 
         public override void OnEnterState()
         {
+            chestStateText.text = "Unlocking";
             UpdateTimerText();
             chestButton.onClick.AddListener(OnChestButtonPressed);
         }
@@ -61,7 +64,7 @@ namespace ChestSystem
             int minutes = (int)(timeToUnlock / 60);
             int seconds = (int)(timeToUnlock % 60);
 
-            chestTimerText.text = minutes + " : " + seconds;
+            chestTimerText.text = seconds.ToString();
         }
 
         public void OnChestUnlocked()

@@ -10,6 +10,8 @@ namespace ChestSystem
         [SerializeField] private Image chestImage;
         [SerializeField] private GameObject chestVisual;
 
+        [SerializeField] private ChestStateMachineBehaviour chestStateMachine;
+
         public void SetChestController(ChestController _chestController)
         {
             this.chestController = _chestController;
@@ -19,12 +21,17 @@ namespace ChestSystem
         {
             chestVisual.SetActive(true);
             this.chestImage.sprite = sprite;
-            Debug.Log($"Chest sprite set: {sprite}");
+            ChangeChestState(ChestStates.Locked);
         }
        
         public void DisableChest()
         {
             chestVisual.SetActive(false);
+        }
+
+        public void ChangeChestState(ChestStates newState)
+        {
+          chestStateMachine.ChangeChestState(newState, this.chestController);
         }
     }
 }
