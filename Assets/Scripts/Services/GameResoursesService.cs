@@ -4,17 +4,19 @@ using UnityEngine;
 
 namespace ChestSystem
 {
-    public class GameResoursesService : GenericSingleton<GameResoursesService>
+    public class GameResoursesService
     {
         public int Coins { get; private set; }
         public int Gems { get; private set; }
 
-        private void Start()
+
+
+        public GameResoursesService() 
         {
             AddCoins(1000);
             AddGems(100);
         }
-
+        
         public void AddGems(int gems)
         {
             Gems += gems;

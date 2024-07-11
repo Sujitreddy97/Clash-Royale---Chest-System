@@ -14,7 +14,7 @@ namespace ChestSystem
 
         public void SpwanButtonPressed()
         {
-            ChestService.Instance.GetChestController();
+           GameService.Instance.chestService.GetChestController();
         }
     }
 }

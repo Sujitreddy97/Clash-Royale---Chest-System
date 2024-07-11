@@ -4,11 +4,15 @@ using UnityEngine;
 
 namespace ChestSystem
 {
-    public class QueueChestService : GenericSingleton<QueueChestService>
+    public class QueueChestService
     {
-        [SerializeField] private int maxNumberOfChestToEnque;
-
+        private int maxNumberOfChestToEnque;
         private List<ChestController> unlockingChestsQueue = new List<ChestController>();
+
+        public QueueChestService(int _maxNumberOfChestToEnque) 
+        {
+            this.maxNumberOfChestToEnque = _maxNumberOfChestToEnque;
+        }
 
         public void EnqueChest(ChestController chestController)
         {

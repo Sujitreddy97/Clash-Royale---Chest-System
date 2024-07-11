@@ -31,7 +31,7 @@ namespace ChestSystem
 
         private void ReturnTheChestToPool()
         {
-            ChestService.Instance.ReturnChestController(chestController);
+            GameService.Instance.chestService.ReturnChestController(chestController);
         }
     }
 }

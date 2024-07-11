@@ -55,7 +55,7 @@ namespace ChestSystem
 
         public void OnChestUnlocked()
         {
-            QueueChestService.Instance.DequeChest();
+            GameService.Instance.queueChestService.DequeChest();
             ChangeState(ChestStates.Unlocked);
         }
 
@@ -65,7 +65,7 @@ namespace ChestSystem
             {
                 return;
             }
-            QueueChestService.Instance.EnqueChest(this);
+            GameService.Instance.queueChestService.EnqueChest(this);
         }
 
         public void OnUnlockImmidiatePressed(int numOfGemsToUse, ChestController chestController)
@@ -75,12 +75,12 @@ namespace ChestSystem
                 return;
             }
 
-            if (!GameResoursesService.Instance.UseGems(numOfGemsToUse))
+            if (!GameService.Instance.gameResoursesService.UseGems(numOfGemsToUse))
             {
                 return;
             }
 
-            if(!QueueChestService.Instance.DequeChest(this))
+            if(!GameService.Instance.queueChestService.DequeChest(this))
             {
                 ChangeState(ChestStates.Unlocked);
             }
@@ -90,8 +90,8 @@ namespace ChestSystem
         {
             int gemsToAdd = chestModel.GetRandomGems();
             int coinsToAdd = chestModel.GetRandomCoins();
-            GameResoursesService.Instance.AddGems(gemsToAdd);
-            GameResoursesService.Instance.AddCoins(coinsToAdd);
+            GameService.Instance.gameResoursesService.AddGems(gemsToAdd);
+            GameService.Instance.gameResoursesService.AddCoins(coinsToAdd);
 
             ChangeState(ChestStates.Collected);
         }

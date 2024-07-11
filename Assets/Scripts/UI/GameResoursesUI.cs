@@ -3,9 +3,15 @@ using UnityEngine;
 
 namespace ChestSystem
 {
-    public class GameResoursesUI : MonoBehaviour
+    public class GameResoursesUI
     {
-        [SerializeField] private TextMeshProUGUI coinsText, gemsText;
+        private TextMeshProUGUI coinsText, gemsText;
+
+        public GameResoursesUI(TextMeshProUGUI _coinsText, TextMeshProUGUI _gemsText)
+        {
+            this.coinsText = _coinsText;
+            this.gemsText = _gemsText;
+        }
 
         private void OnEnable()
         {

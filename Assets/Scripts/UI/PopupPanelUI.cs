@@ -7,18 +7,24 @@ using UnityEngine.UI;
 
 namespace ChestSystem
 {
-    public class PopupPanelUI : MonoBehaviour
+    public class PopupPanelUI
     {
-        [SerializeField] private GameObject popupPanel;
-        [SerializeField] private TextMeshProUGUI popupText, unlockImmidiatelyText;
-        [SerializeField] private Button unlockButton, unlockImmidiateButton, closePopupButton;
+        private GameObject popupPanel;
+        private TextMeshProUGUI popupText, unlockImmidiatelyText;
+        private Button unlockButton, unlockImmidiateButton, closePopupButton;
 
         private int requiredGemsToUnlock = 0;
 
         private ChestController selectedChestController;
 
-        private void Start()
+        public PopupPanelUI(GameObject _popupPanel, TextMeshProUGUI _popupText, TextMeshProUGUI _unlockImmidiatelyText, Button _unlockButton, Button _unlockImmidiateButton, Button _closePopupButton)
         {
+            this.popupPanel = _popupPanel;
+            this.popupText = _popupText;
+            this.unlockImmidiatelyText = _unlockImmidiatelyText;
+            this.unlockButton = _unlockButton;
+            this.unlockImmidiateButton = _unlockImmidiateButton;
+            this.closePopupButton = _closePopupButton;
             closePopupButton.onClick.AddListener(ClosePopupPanelPressed);
             EventService.Instance.OnAllSlotsAreFullEvent.AddListener(OnChestSlotsFilled);
             EventService.Instance.OnChestSelectedEvent.AddListener(OnChestSelectedEventTriggered);
@@ -45,7 +51,6 @@ namespace ChestSystem
 
         public void OnQueueFilledTriggered()
         {
-            Debug.Log("On queue full popup panel");
             popupText.text = "Queue is Full";
             DeactivateBottomPopup();
             popupPanel.SetActive(true);
