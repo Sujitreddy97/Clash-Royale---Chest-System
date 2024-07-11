@@ -37,21 +37,21 @@ namespace ChestSystem
 
         public void OnChestSlotsFilled()
         {
-            popupText.text = "All the Slots are Occupied";
+            popupText.text = "ALL SLOTS ARE OCCUPIED";
             DeactivateBottomPopup();
             popupPanel.SetActive(true);
         }
 
         public void OnNotEnoughResoursesTriggered()
         {
-            popupText.text = "Not Enough Resourses";
+            popupText.text = "NOT ENOUGH RESOURSES";
             DeactivateBottomPopup();
             popupPanel.SetActive(true);
         }
 
         public void OnQueueFilledTriggered()
         {
-            popupText.text = "Queue is Full";
+            popupText.text = "QUEUE IS FULL";
             DeactivateBottomPopup();
             popupPanel.SetActive(true);
         }
@@ -78,12 +78,12 @@ namespace ChestSystem
         public void OnChestSelectedEventTriggered(int remainingTimeToUnlockInMinutes, ChestController chestController)
         {
             popupPanel.SetActive(true);
-            popupText.text = "Start Unlocking the Chest";
+            popupText.text = "START UNLOCKING CHEST";
             unlockButton.gameObject.SetActive(true);
             unlockImmidiateButton.gameObject.SetActive(true);
 
             requiredGemsToUnlock = (remainingTimeToUnlockInMinutes + 1) * 3;
-            unlockImmidiatelyText.text = "Unlock " + requiredGemsToUnlock + " Gems";
+            unlockImmidiatelyText.text = "UNLOCK " + requiredGemsToUnlock + " GEMS";
             selectedChestController = chestController;
         }
 

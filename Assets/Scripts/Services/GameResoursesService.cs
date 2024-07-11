@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace ChestSystem
@@ -9,14 +10,12 @@ namespace ChestSystem
         public int Coins { get; private set; }
         public int Gems { get; private set; }
 
-
-
-        public GameResoursesService() 
+        public GameResoursesService()
         {
             AddCoins(1000);
             AddGems(100);
         }
-        
+
         public void AddGems(int gems)
         {
             Gems += gems;

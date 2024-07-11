@@ -11,17 +11,19 @@ namespace ChestSystem
         public ChestService chestService {  get; private set; }
         public QueueChestService queueChestService { get; private set; }
         public GameResoursesService gameResoursesService { get; private set;}
-
         public PopupPanelUI popupPanelUI { get; private set; }
 
+        [Header("Chest Service")]
         [SerializeField] private ChestView chestView;
         [SerializeField] private Transform parent;
         [SerializeField] private ChestScriptableObjectList chestsList;
         [SerializeField] private int maxNumberOfChest = 3;
         [SerializeField] private int costPerChest = 50;
 
+        [Header("Queue Service")]
         [SerializeField] private int maxNumberOfChestToEnque;
 
+        [Header("Popup Panel UI")]
         [SerializeField] private GameObject popupPanel;
         [SerializeField] private TextMeshProUGUI popupText, unlockImmidiatelyText;
         [SerializeField] private Button unlockButton, unlockImmidiateButton, closePopupButton;
@@ -29,6 +31,11 @@ namespace ChestSystem
         [SerializeField] private TextMeshProUGUI coinsText, gemsText;
 
         private void Start()
+        {
+            CreateServices();
+        }
+
+        private void CreateServices()
         {
             chestService = new ChestService(chestView, parent, chestsList, maxNumberOfChest, costPerChest);
             queueChestService = new QueueChestService(maxNumberOfChestToEnque);
